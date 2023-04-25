@@ -1,0 +1,47 @@
+@import './variables.module'
+
+.main
+    display: flex
+    justify-content: center
+    height: 100%
+    width: 100%
+    z-index: 10
+
+    &__title
+        font-size: 128px
+        color: $textprimary
+        line-height: 90%
+        position: relative
+    &__text
+        font-size: 128px
+        line-height: 120%
+        color: $bgprimary
+        text-shadow: -1px -1px 0 $textsecondary, 0 -1px 0 $textsecondary, 1px -1px 0 $textsecondary, 1px 0 0 $textsecondary, 1px 1px 0 $textsecondary, 0 1px 0 $textsecondary, -1px 1px 0 $textsecondary, -1px 0 0 $textsecondary
+
+    &__inner__wrapper
+        display: flex
+        align-items: center
+        gap: 10px
+
+        a
+            position: relative
+            width: 130px
+            aspect-ratio: 1/1
+            margin-top: 20px
+            &:hover
+                svg
+                    fill: #2A2A2A
+                    path
+                        fill: #2A2A2A
+@keyframes rotation
+    0%
+        transform: rotate(0deg)
+
+    100%
+        transform: rotate(360deg)
+
+#circle
+    animation-name: rotation
+    animation-duration: 5s
+    animation-iteration-count: infinite
+    animation-timing-function: linear
