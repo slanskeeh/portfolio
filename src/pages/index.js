@@ -1,8 +1,9 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.sass";
+import styles from "@/styles/Body.module.sass";
 
-import Header from "@/components/Header";
-import Main from "@/components/Main";
+import Header from "@/components/header";
+import HomeScreen from "@/screens/home";
+import AboutScreen from "@/screens/about";
 
 export default function Home() {
   return (
@@ -35,8 +36,8 @@ export default function Home() {
       </Head>
       <Header />
       <main className={styles.main}>
-        <div className={styles.bg}></div>
-        <Main />
+        <HomeScreen />
+        <AboutScreen />
       </main>
     </>
   );

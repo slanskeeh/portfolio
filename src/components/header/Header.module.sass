@@ -1,7 +1,7 @@
-@import "./variables.module"
+@import '../../styles/variables.module'
 
 .header
-    z-index: 100
+    z-index: 1000
     aspect-ratio: 1/1
     position: fixed
     top: 0
@@ -12,13 +12,14 @@
     align-items: center
     justify-content: center
 
+    background: rgba(217, 217, 217, 0.01)
+    backdrop-filter: blur(22.5533px)
     &__logo
         a
             svg
-                // isolation: isolate
                 path
                     stroke: $textprimary
-                    fill: transparent
+                    fill: $bgprimary
                     transition: .2s all
             &:hover
                 svg
