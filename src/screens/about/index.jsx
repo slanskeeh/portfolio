@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/layouts/container";
 
 import styles from "./About.module.sass";
 import bgStyles from "@/styles/NoiseBackground.module.sass";

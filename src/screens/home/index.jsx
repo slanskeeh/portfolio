@@ -1,4 +1,4 @@
-import Container from "@/components/Container";
+import Container from "@/layouts/container";
 import CircleText from "@/components/svg/CircleText";
 import Arrow from "@/components/svg/Arrow";
 

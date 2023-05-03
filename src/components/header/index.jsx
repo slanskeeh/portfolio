@@ -1,4 +1,4 @@
-import Container from "../Container";
+import Container from "@/layouts/container";
 
 import styles from "./Header.module.sass";
 
