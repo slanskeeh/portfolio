@@ -4,6 +4,10 @@ import styles from "@/styles/Body.module.sass";
 import Header from "@/components/header";
 import HomeScreen from "@/screens/home";
 import AboutScreen from "@/screens/about";
+import { Suspense } from "react";
+import Preloader from "@/components/preloader";
+
+const HomeScreen = lazy(() => {});
 
 export default function Home() {
   return (
@@ -36,8 +40,10 @@ export default function Home() {
       </Head>
       <Header />
       <main className={styles.main}>
-        <HomeScreen />
-        <AboutScreen />
+        <Suspense fallback={<Preloader />}>
+          <HomeScreen />
+          <AboutScreen />
+        </Suspense>
       </main>
     </>
   );
