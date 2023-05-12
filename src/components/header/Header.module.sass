@@ -15,16 +15,26 @@
     background: rgba(217, 217, 217, 0.01)
     backdrop-filter: blur(22.5533px)
     &__logo
+        transition: .2s all
+        &_dark
+            a
+                svg
+                    path
+                        stroke: $bgprimary
+
+                &:hover
+                    svg
+                        path
+                            stroke: $textsecondary
         a
             svg
                 path
                     stroke: $textprimary
-                    fill: $bgprimary
                     transition: .2s all
             &:hover
                 svg
                     path
-                        fill: $textprimary
+                        stroke: #000
 
     &__nav
         &__links
@@ -32,6 +42,11 @@
             align-items: center
             gap: 40px
             list-style-type: none
+            &_dark
+                color: $bgprimary !important
+
+                &:hover
+                    color: $textsecondary !important
 
         li
             a

@@ -1,11 +1,18 @@
 import Container from "@/layouts/container";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 import styles from "./About.module.sass";
 import bgStyles from "@/styles/NoiseBackground.module.sass";
 
-const AboutScreen = () => {
+const AboutScreen = ({ setIsIntersecting }) => {
+  const { ref, inView, entry } = useInView({ threshold: 0 });
+
+  useEffect(() => {
+    setIsIntersecting(inView);
+  }, [inView]);
   return (
-    <section className={styles.about}>
+    <section ref={ref} className={styles.about}>
       <div className={bgStyles.bg}></div>
       <Container
         style={{

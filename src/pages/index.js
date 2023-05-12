@@ -1,15 +1,25 @@
+import { lazy, useState } from "react";
+
 import Head from "next/head";
 import styles from "@/styles/Body.module.sass";
 
 import Header from "@/components/header";
-import HomeScreen from "@/screens/home";
-import AboutScreen from "@/screens/about";
+// import HomeScreen from "@/screens/home";
+// import AboutScreen from "@/screens/about";
 import { Suspense } from "react";
 import Preloader from "@/components/preloader";
 
-const HomeScreen = lazy(() => {});
+const HomeScreen = lazy(() => import("@/screens/home"));
+
+// () => {
+//   return new Promise(resolve => {
+//     setTimeout(() => resolve(import("./home")), 300);
+//   });
+// });
+const AboutScreen = lazy(() => import("@/screens/about"));
 
 export default function Home() {
+  const [isIntersecting, setIsIntersecting] = useState(false);
   return (
     <>
       <Head>
@@ -38,11 +48,11 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <Header />
+      <Header isIntersecting={isIntersecting} />
       <main className={styles.main}>
         <Suspense fallback={<Preloader />}>
           <HomeScreen />
-          <AboutScreen />
+          <AboutScreen setIsIntersecting={setIsIntersecting} />
         </Suspense>
       </main>
     </>

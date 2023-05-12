@@ -2,7 +2,7 @@ import Container from "@/layouts/container";
 
 import styles from "./Header.module.sass";
 
-const Header = () => {
+const Header = ({ isIntersecting }) => {
   return (
     <header className={styles.header}>
       <Container
@@ -12,7 +12,11 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        <div className={styles.header__logo}>
+        <div
+          className={
+            isIntersecting ? styles.header__logo_dark : styles.header__logo
+          }
+        >
           <a href="#" className={styles.header__logo_link}>
             <svg
               width="50"
@@ -30,11 +34,25 @@ const Header = () => {
         </div>
         <nav className={styles.header__nav}>
           <ul className={styles.header__nav__links}>
-            <li className={styles.header__nav__links_link}>
-              <a href="#">Обо мне</a>
+            <li>
+              <a
+                className={
+                  isIntersecting ? styles.header__nav__links_dark : null
+                }
+                href="#"
+              >
+                Обо мне
+              </a>
             </li>
-            <li className={styles.header__nav__links_link}>
-              <a href="#">Работы</a>
+            <li>
+              <a
+                className={
+                  isIntersecting ? styles.header__nav__links_dark : null
+                }
+                href="#"
+              >
+                Работы
+              </a>
             </li>
           </ul>
         </nav>
