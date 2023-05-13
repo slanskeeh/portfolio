@@ -27,7 +27,7 @@ a {
 section {
   display: flex;
   justify-content: center;
-  min-height: 150vh;
+  min-height: calc(100vh + 1px);
   width: 100vw;
   z-index: 100;
   overflow: hidden;

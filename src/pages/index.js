@@ -19,7 +19,10 @@ const HomeScreen = lazy(() => import("@/screens/home"));
 const AboutScreen = lazy(() => import("@/screens/about"));
 
 export default function Home() {
-  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isIntersectingHomeScreen, setIsIntersectingHomeScreen] =
+    useState(false);
+  const [isIntersectingAboutScreen, setIsIntersectingAboutScreen] =
+    useState(false);
   return (
     <>
       <Head>
@@ -48,11 +51,14 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <Header isIntersecting={isIntersecting} />
+      <Header
+        isIntersectingHomeScreen={isIntersectingHomeScreen}
+        isIntersectingAboutScreen={isIntersectingAboutScreen}
+      />
       <main className={styles.main}>
         <Suspense fallback={<Preloader />}>
-          <HomeScreen />
-          <AboutScreen setIsIntersecting={setIsIntersecting} />
+          <HomeScreen setIsIntersecting={setIsIntersectingHomeScreen} />
+          <AboutScreen setIsIntersecting={setIsIntersectingAboutScreen} />
         </Suspense>
       </main>
     </>

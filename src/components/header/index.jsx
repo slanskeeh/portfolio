@@ -2,7 +2,7 @@ import Container from "@/layouts/container";
 
 import styles from "./Header.module.sass";
 
-const Header = ({ isIntersecting }) => {
+const Header = ({ isIntersectingHomeScreen, isIntersectingAboutScreen }) => {
   return (
     <header className={styles.header}>
       <Container
@@ -14,7 +14,9 @@ const Header = ({ isIntersecting }) => {
       >
         <div
           className={
-            isIntersecting ? styles.header__logo_dark : styles.header__logo
+            !isIntersectingHomeScreen && isIntersectingAboutScreen
+              ? styles.header__logo_dark
+              : styles.header__logo
           }
         >
           <a href="#" className={styles.header__logo_link}>
@@ -37,7 +39,9 @@ const Header = ({ isIntersecting }) => {
             <li>
               <a
                 className={
-                  isIntersecting ? styles.header__nav__links_dark : null
+                  !isIntersectingHomeScreen && isIntersectingAboutScreen
+                    ? styles.header__nav__links_dark
+                    : null
                 }
                 href="#"
               >
@@ -47,7 +51,9 @@ const Header = ({ isIntersecting }) => {
             <li>
               <a
                 className={
-                  isIntersecting ? styles.header__nav__links_dark : null
+                  !isIntersectingHomeScreen && isIntersectingAboutScreen
+                    ? styles.header__nav__links_dark
+                    : null
                 }
                 href="#"
               >

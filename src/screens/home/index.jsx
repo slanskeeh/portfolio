@@ -1,13 +1,21 @@
 import Container from "@/layouts/container";
 import CircleText from "@/components/svg/CircleText";
 import Arrow from "@/components/svg/Arrow";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 import styles from "./Home.module.sass";
 import bgStyles from "@/styles/NoiseBackground.module.sass";
 
-const HomeScreen = () => {
+const HomeScreen = ({ setIsIntersecting }) => {
+  const { ref, inView } = useInView({ threshold: 0 });
+
+  useEffect(() => {
+    setIsIntersecting(inView);
+  }, [inView]);
+
   return (
-    <section className={styles.home}>
+    <section ref={ref} className={styles.home}>
       <div className={bgStyles.bg}></div>
       <Container
         style={{
