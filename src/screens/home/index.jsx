@@ -4,6 +4,8 @@ import Arrow from "@/components/svg/Arrow";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
+import { motion } from "framer-motion";
+
 import styles from "./Home.module.sass";
 import bgStyles from "@/styles/NoiseBackground.module.sass";
 
@@ -26,11 +28,53 @@ const HomeScreen = ({ setIsIntersecting }) => {
       >
         <div className={styles.home__wrapper}>
           <h1 className={styles.home__title}>
-            Начинающий
+            <div className={styles.home__title__wrapper}>
+              {"Начинающий".split("").map((letter) => {
+                return (
+                  <motion.p
+                    className={styles.home__title__p}
+                    whileHover={{
+                      scaleY: 0.9,
+                      y: 4,
+                    }}
+                  >
+                    {letter}
+                  </motion.p>
+                );
+              })}
+            </div>
             <br />
-            фронтенд
+            <div className={styles.home__title__wrapper}>
+              {"фронтенд".split("").map((letter) => {
+                return (
+                  <motion.p
+                    className={styles.home__title__p}
+                    whileHover={{
+                      scaleY: 0.9,
+                      y: 4,
+                    }}
+                  >
+                    {letter}
+                  </motion.p>
+                );
+              })}
+            </div>
             <br />
-            разработчик
+            <div className={styles.home__title__wrapper}>
+              {"разработчик".split("").map((letter) => {
+                return (
+                  <motion.p
+                    className={styles.home__title__p}
+                    whileHover={{
+                      scaleY: 0.9,
+                      y: 4,
+                    }}
+                  >
+                    {letter}
+                  </motion.p>
+                );
+              })}
+            </div>
             <br />
           </h1>
 
