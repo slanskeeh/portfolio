@@ -4,6 +4,7 @@ import { loadIconFont } from "@/lib/og-font";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 export const runtime = "nodejs";
+export const dynamic = "force-static";
 
 export default async function AppleIcon() {
   const fonts = await loadIconFont();

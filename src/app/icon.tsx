@@ -4,6 +4,7 @@ import { loadIconFont } from "@/lib/og-font";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 export const runtime = "nodejs";
+export const dynamic = "force-static";
 
 export default async function Icon() {
   const fonts = await loadIconFont();
