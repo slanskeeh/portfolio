@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/footer/SiteFooter";
 import { Hero } from "@/components/hero/Hero";
 import { Projects } from "@/components/projects/Projects";
 import { StackGraph } from "@/components/stack/StackGraph";
+import { Work } from "@/components/work/Work";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Capabilities />
       <StackGraph />
+      <Work />
       <Projects />
       <Contact />
       <SiteFooter />

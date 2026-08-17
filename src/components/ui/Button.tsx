@@ -13,11 +13,13 @@ const styles: Record<Variant, string> = {
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
   href?: string;
+  external?: boolean;
 };
 
 export function Button({
   variant = "primary",
   href,
+  external = false,
   className = "",
   children,
   ...rest
@@ -26,7 +28,11 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={cls}>
+      <a
+        href={href}
+        className={cls}
+        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      >
         {children}
       </a>
     );
