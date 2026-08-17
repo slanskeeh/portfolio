@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex min-w-0 flex-1 flex-col overflow-x-clip">
       <Hero />
       <Capabilities />
       <StackGraph />

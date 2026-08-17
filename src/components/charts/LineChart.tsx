@@ -33,7 +33,7 @@ export function LineChart({
   return (
     <svg
       viewBox={`0 0 ${w} ${h}`}
-      className={`h-full w-full overflow-visible ${className}`}
+      className={`h-full w-full overflow-hidden ${className}`}
       role="img"
       aria-label="Линейный график, синтетические данные"
     >

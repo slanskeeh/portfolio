@@ -29,7 +29,7 @@ export function BarChart({
                 animationDelay: `${i * 0.06}s`,
               }}
             />
-            <span className="text-center font-mono text-[10px] text-mist">{item.name}</span>
+            <span className="truncate text-center font-mono text-[10px] text-mist">{item.name}</span>
           </div>
         );
       })}

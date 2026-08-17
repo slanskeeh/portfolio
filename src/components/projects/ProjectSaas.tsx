@@ -29,10 +29,10 @@ export function ProjectSaas() {
   const current = states.find((s) => s.id === state)!;
 
   return (
-    <article className="rounded-[var(--radius-panel)] bg-fog p-5 text-ink md:p-8">
-      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div>
-          <h3 className="font-display text-3xl tracking-[-0.03em] md:text-4xl">{meta.title}</h3>
+    <article className="min-w-0 overflow-hidden rounded-[var(--radius-panel)] bg-fog p-5 text-ink md:p-8">
+      <div className="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
+        <div className="min-w-0">
+          <h3 className="font-display text-3xl tracking-[-0.03em] break-words md:text-4xl">{meta.title}</h3>
           <p className="mt-4 max-w-[42ch] text-[16px] leading-relaxed text-ink/70">{meta.lead}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {meta.tech.map((t) => (
@@ -43,7 +43,7 @@ export function ProjectSaas() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <div className="mb-4 flex flex-wrap gap-2">
             {states.map((s) => (
               <button
@@ -76,9 +76,9 @@ export function ProjectSaas() {
               </div>
             ) : (
               <div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-3">
                   <p className="font-display text-xl tracking-[-0.02em]">Workspace</p>
-                  <span className="font-mono text-[11px] text-ink/50">3 members</span>
+                  <span className="shrink-0 font-mono text-[11px] text-ink/50">3 members</span>
                 </div>
                 <ul className="mt-5 space-y-3">
                   {["Design ops", "Billing", "Launch"].map((item) => (

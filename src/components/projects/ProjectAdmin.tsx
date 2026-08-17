@@ -28,10 +28,10 @@ export function ProjectAdmin() {
   );
 
   return (
-    <article className="rounded-[var(--radius-panel)] bg-ink-2">
-      <div className="grid gap-8 p-5 md:p-8 lg:grid-cols-[0.9fr_1.4fr]">
-        <div>
-          <h3 className="font-display text-3xl tracking-[-0.03em] md:text-4xl">{meta.title}</h3>
+    <article className="min-w-0 overflow-hidden rounded-[var(--radius-panel)] bg-ink-2">
+      <div className="grid min-w-0 gap-8 p-5 md:p-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)]">
+        <div className="min-w-0">
+          <h3 className="font-display text-3xl tracking-[-0.03em] break-words md:text-4xl">{meta.title}</h3>
           <p className="mt-4 max-w-[42ch] text-[16px] leading-relaxed text-mist">{meta.lead}</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {meta.tech.map((t) => (
@@ -41,7 +41,7 @@ export function ProjectAdmin() {
           <p className="mt-6 font-mono text-[11px] text-mist">Демо-таблица. Синтетика, не клиент.</p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <div className="mb-4 flex flex-wrap gap-2">
             {filters.map((f) => (
               <button
@@ -57,14 +57,49 @@ export function ProjectAdmin() {
             ))}
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[480px] text-left text-[13px]">
+          <ul className="space-y-2 md:hidden">
+            {rows.length === 0 ? (
+              <li className="rounded-[var(--radius-control)] bg-ink px-3 py-8 text-center text-[13px] text-mist">
+                Нет строк в этом срезе. Выберите другой фильтр.
+              </li>
+            ) : (
+              rows.map((row) => (
+                <li
+                  key={row.id}
+                  className="rounded-[var(--radius-control)] bg-ink px-3 py-3"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-mono text-[12px] text-fog">{row.id}</span>
+                    <span
+                      className={`font-mono text-[11px] ${
+                        row.status === "ok"
+                          ? "text-ok"
+                          : row.status === "warn"
+                            ? "text-warn"
+                            : "text-mist"
+                      }`}
+                    >
+                      {statusLabel[row.status]}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-[14px]">{row.client}</p>
+                  <div className="mt-2 flex items-center justify-between font-mono text-[11px] text-mist">
+                    <span className="tabular">{row.amount}</span>
+                    <span>{row.eta}</span>
+                  </div>
+                </li>
+              ))
+            )}
+          </ul>
+
+          <div className="hidden min-w-0 overflow-x-auto md:block">
+            <table className="w-full text-left text-[13px]">
               <thead className="font-mono text-[11px] text-mist">
                 <tr>
                   <th className="pb-3 font-medium">ID</th>
                   <th className="pb-3 font-medium">Клиент</th>
                   <th className="pb-3 font-medium">Статус</th>
-                  <th className="pb-3 font-medium">Сумма</th>
+                  <th className="pb-3 pr-2 font-medium">Сумма</th>
                   <th className="pb-3 font-medium">ETA</th>
                 </tr>
               </thead>
@@ -93,7 +128,7 @@ export function ProjectAdmin() {
                           {statusLabel[row.status]}
                         </span>
                       </td>
-                      <td className="py-3 tabular">{row.amount}</td>
+                      <td className="py-3 whitespace-nowrap tabular">{row.amount}</td>
                       <td className="py-3 text-mist">{row.eta}</td>
                     </tr>
                   ))
@@ -102,7 +137,7 @@ export function ProjectAdmin() {
             </table>
           </div>
 
-          <div className="mt-6 h-28">
+          <div className="mt-6 h-28 min-w-0">
             <BarChart items={[...channelBars]} />
           </div>
         </div>
