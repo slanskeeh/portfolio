@@ -36,7 +36,7 @@ Viewed on desktop first (client review, often a laptop), must hold on tablet and
 - No generic AI portfolio tropes (centered "Hi, I'm…", three equal cards, Inter + purple glow, empty luxury whitespace, shadcn-default chrome).
 - Visual richness must stay usable: readable type, WCAG-minded contrast, `prefers-reduced-motion`.
 - Language: Russian (confirmed).
-- Display name inferred as Максим Герасименко / short mark «Максим» until corrected.
+- Display name inferred as Максим Герасименко / short mark «Максим» until corrected
 
 ## Brand Commitments
 
