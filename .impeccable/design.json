@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-17T18:55:00.000Z",
+  "title": "Design System: Рабочая консоль",
+  "extensions": {
+    "colorMeta": {
+      "volt": { "role": "primary", "displayName": "Volt", "canonical": "#D2FF3A" },
+      "cobalt": { "role": "secondary", "displayName": "Cobalt", "canonical": "#2B5BFF" },
+      "coral": { "role": "tertiary", "displayName": "Coral", "canonical": "#FF5A36" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#12141C" },
+      "fog": { "role": "neutral", "displayName": "Fog", "canonical": "#E8EEF6" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and section theses." },
+      "body": { "displayName": "Body", "purpose": "Readable Russian copy." },
+      "label": { "displayName": "Mono label", "purpose": "Metrics, routes, badges." }
+    },
+    "shadows": [
+      {
+        "name": "instrument-lift",
+        "value": "0 18px 50px rgba(8,10,18,0.55)",
+        "purpose": "Hero instrument cluster only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Entrance, charts, hovers."
+      },
+      { "name": "dur-fast", "value": "180ms", "purpose": "Hover and control feedback." },
+      { "name": "dur-med", "value": "320ms", "purpose": "Section and cluster motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Volt field CTA. Ink label.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#projects\">Смотреть проекты</a>",
+      "css": ".ds-btn-primary { background: var(--volt, #D2FF3A); color: var(--ink, #12141C); padding: 12px 20px; border-radius: 8px; font: 500 15px/1 Golos Text, sans-serif; text-decoration: none; display: inline-flex; } .ds-btn-primary:hover { transform: translateY(-1px); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #D2FF3A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on Ink.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#contact\">Написать мне</a>",
+      "css": ".ds-btn-ghost { border: 1px solid rgba(232,238,246,0.2); color: #E8EEF6; padding: 12px 20px; border-radius: 8px; font: 500 15px/1 Golos Text, sans-serif; text-decoration: none; display: inline-flex; } .ds-btn-ghost:hover { border-color: #D2FF3A; color: #D2FF3A; }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Mono pill for tech and demo labels.",
+      "html": "<span class=\"ds-badge\">синтетика</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; border: 1px solid rgba(232,238,246,0.15); background: rgba(232,238,246,0.08); color: #E8EEF6; border-radius: 999px; padding: 4px 10px; font: 400 11px/1 JetBrains Mono, monospace; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Рабочая консоль",
+    "overview": "The portfolio is a live product console. Color owns whole fields. Volt is the only interactive accent.",
+    "keyCharacteristics": [
+      "Split hero with live instrument cluster",
+      "Section color fields",
+      "Four different project surfaces"
+    ],
+    "rules": [
+      { "name": "The Volt-Only Chrome Rule", "body": "Interactive chrome uses Volt only.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "No uppercase label above section headings.", "section": "typography" }
+    ],
+    "dos": [
+      "Show working UI widgets",
+      "Label synthetic data"
+    ],
+    "donts": [
+      "Centered greeting hero",
+      "Identical project cards",
+      "Inter plus purple glow"
+    ]
+  }
+}
