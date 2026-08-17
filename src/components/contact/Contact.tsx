@@ -24,7 +24,7 @@ export function Contact() {
                 href={link.href}
                 className="group inline-flex flex-col"
                 target="_blank"
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
               >
                 <span className="font-mono text-[11px] text-ink/55">{link.kind}</span>
                 <span className="mt-1 text-lg underline-offset-4 transition-colors group-hover:underline">

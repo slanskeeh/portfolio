@@ -1,9 +1,7 @@
-"use client";
-
-import type { PointerEvent } from "react";
 import { Metric } from "@/components/charts/Metric";
 import { LineChart } from "@/components/charts/LineChart";
 import { RadialChart } from "@/components/charts/RadialChart";
+import { TiltFrame } from "@/components/hero/TiltFrame";
 import { Badge } from "@/components/ui/Badge";
 import { hydration, renderSeries, routes, vitals } from "@/data/demo-metrics";
 
@@ -13,25 +11,8 @@ const statusTone = {
 } as const;
 
 export function InstrumentCluster() {
-  function onMove(e: PointerEvent<HTMLDivElement>) {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = e.currentTarget;
-    const r = el.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
-    const y = ((e.clientY - r.top) / r.height - 0.5) * 8;
-    el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  }
-
-  function onLeave(e: PointerEvent<HTMLDivElement>) {
-    e.currentTarget.style.transform = "translate3d(0,0,0)";
-  }
-
   return (
-    <div
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
-      className="relative overflow-hidden rounded-[var(--radius-panel)] bg-ink-2 shadow-[0_18px_50px_rgba(8,10,18,0.55)] transition-transform duration-[var(--dur-med)] ease-[var(--ease-out-expo)] will-change-transform"
-    >
+    <TiltFrame className="relative overflow-hidden rounded-[var(--radius-panel)] bg-ink-2 shadow-[0_18px_50px_rgba(8,10,18,0.55)] transition-transform duration-[var(--dur-med)] ease-[var(--ease-out-expo)] will-change-transform">
       <div className="flex items-center justify-between px-4 py-2.5">
         <div className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-volt" />
@@ -81,6 +62,6 @@ export function InstrumentCluster() {
           <RadialChart value={hydration} label="hydration" className="mx-auto h-[120px] w-[120px]" />
         </div>
       </div>
-    </div>
+    </TiltFrame>
   );
 }

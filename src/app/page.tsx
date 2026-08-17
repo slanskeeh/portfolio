@@ -6,6 +6,8 @@ import { Projects } from "@/components/projects/Projects";
 import { StackGraph } from "@/components/stack/StackGraph";
 import { Work } from "@/components/work/Work";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">

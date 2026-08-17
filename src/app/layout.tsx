@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Golos_Text, JetBrains_Mono, Unbounded } from "next/font/google";
 import { SiteNav } from "@/components/nav/SiteNav";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getSiteUrl, siteDescription, siteName, siteTitle } from "@/lib/site";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -8,6 +10,7 @@ const unbounded = Unbounded({
   subsets: ["latin", "cyrillic"],
   weight: ["500", "600"],
   display: "swap",
+  preload: true,
 });
 
 const golos = Golos_Text({
@@ -15,6 +18,7 @@ const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
   weight: ["400", "500", "600"],
   display: "swap",
+  preload: true,
 });
 
 const jetbrains = JetBrains_Mono({
@@ -24,10 +28,78 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+const site = getSiteUrl();
+
 export const metadata: Metadata = {
-  title: "Максим Герасименко · Frontend Developer",
-  description:
-    "Frontend developer. Сложные интерфейсы, админ-панели, визуализация данных и аккуратный motion.",
+  metadataBase: new URL(site),
+  title: {
+    default: siteTitle,
+    template: `%s · ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: site }],
+  creator: siteName,
+  publisher: siteName,
+  category: "technology",
+  keywords: [
+    "Frontend Developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Vue",
+    "Nuxt",
+    "админ-панели",
+    "Максим Герасименко",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: {
+      "ru-RU": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "profile",
+    locale: "ru_RU",
+    url: site,
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
+    firstName: "Максим",
+    lastName: "Герасименко",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
+  appleWebApp: {
+    title: siteName,
+    statusBarStyle: "black-translucent",
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#12141C",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
 };
 
 const DIRECTION_CONTRACT = `<!--
@@ -51,6 +123,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-ink font-sans text-fog">
         <span hidden dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
+        <JsonLd />
         <SiteNav />
         {children}
       </body>

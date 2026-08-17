@@ -31,7 +31,7 @@ export function Button({
       <a
         href={href}
         className={cls}
-        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
       </a>
