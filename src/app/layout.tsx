@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Golos_Text, JetBrains_Mono, Unbounded } from "next/font/google";
 import { SiteNav } from "@/components/nav/SiteNav";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { YandexMetrika } from "@/components/seo/YandexMetrika";
 import { getSiteUrl, siteDescription, siteName, siteTitle } from "@/lib/site";
 import "./globals.css";
 
@@ -126,6 +127,7 @@ export default function RootLayout({
         <JsonLd />
         <SiteNav />
         {children}
+        <YandexMetrika />
       </body>
     </html>
   );
